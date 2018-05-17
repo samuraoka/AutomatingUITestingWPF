@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Northwind.UI.Common
 {
@@ -13,11 +14,11 @@ namespace Northwind.UI.Common
             DataContext = new MainViewModel();
         }
 
-        private void leftPane_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void leftPane_SelectionChanged(
+            object sender, SelectionChangedEventArgs e)
         {
-            //TODO
+            var viewModel = leftPane.SelectedItem as ViewModel;
+            viewModel?.RefreshAll();
         }
-
-        //TODO add event listeners.
     }
 }

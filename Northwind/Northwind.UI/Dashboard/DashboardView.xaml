@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dashboard="clr-namespace:Northwind.UI.Dashboard">
+    <DataTemplate x:Key="DashboardView" DataType="dashboard:DashboardViewModel">
+        <Grid>
+            <TextBlock Text="DashboardView"/>
+            <!--TODO-->
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

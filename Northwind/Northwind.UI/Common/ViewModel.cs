@@ -16,5 +16,9 @@ namespace Northwind.UI.Common
         public event PropertyChangedEventHandler PropertyChanged;
 
         //TODO
+
+        public virtual void RefreshAll()
+        {
+        }
     }
 }
