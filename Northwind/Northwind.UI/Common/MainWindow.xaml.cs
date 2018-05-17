@@ -13,6 +13,11 @@ namespace Northwind.UI.Common
             DataContext = new MainViewModel();
         }
 
+        private void leftPane_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            //TODO
+        }
+
         //TODO add event listeners.
     }
 }

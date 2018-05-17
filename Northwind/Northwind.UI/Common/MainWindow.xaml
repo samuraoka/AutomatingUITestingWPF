@@ -3,11 +3,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:comman="clr-namespace:Northwind.UI.Common"
         mc:Ignorable="d"
         Title="Northwind" Height="550" Width="725"
         WindowStartupLocation="CenterScreen"
         Icon="{StaticResource imgApplicationIcon}">
     <Grid>
-        <!--TODO-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <comman:MainDataTemplateSelector x:Key="selector"/>
+        </Grid.Resources>
+
+        <ListBox Grid.Column="0" x:Name="leftPane" ItemsSource="{Binding Path=Items}"
+                 DisplayMemberPath="Caption" BorderThickness="0"
+                 SelectionChanged="leftPane_SelectionChanged">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Height" Value="25"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        
+        <GridSplitter Grid.Column="0" Width="5"/>
+
+        <ContentPresenter Grid.Column="1"
+                          Content="{Binding ElementName=leftPane, Path=SelectedItem}"
+                          ContentTemplateSelector="{StaticResource selector}"/>
     </Grid>
 </Window>

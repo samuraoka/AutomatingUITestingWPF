@@ -66,6 +66,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Projects\ProjectListViewModel.cs" />
+    <Compile Include="Employees\EmployeeListViewModel.cs" />
+    <Compile Include="Departments\DepartmentListViewModel.cs" />
+    <Compile Include="Dashboard\DashboardViewModel.cs" />
+    <Compile Include="Common\MainDataTemplateSelector.cs" />
     <Compile Include="Common\MainViewModel.cs" />
     <Compile Include="Common\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -73,6 +78,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -101,11 +107,6 @@
   <ItemGroup>
     <Resource Include="Images\Icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dashboard\" />
-    <Folder Include="Departments\" />
-    <Folder Include="Employees\" />
-    <Folder Include="Projects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
