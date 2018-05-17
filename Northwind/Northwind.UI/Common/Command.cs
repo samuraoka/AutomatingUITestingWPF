@@ -33,8 +33,7 @@ namespace Northwind.UI.Common
 
         public void Execute(object parameter)
         {
-            //TODO
-            throw new NotImplementedException();
+            execute((T)parameter);
         }
     }
 
