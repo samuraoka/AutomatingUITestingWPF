@@ -1,20 +1,50 @@
-﻿using Northwind.UI.Common;
+﻿using System;
+using Northwind.Logic.Model;
+using Northwind.UI.Common;
 
 namespace Northwind.UI.Departments
 {
     public class DepartmentListViewModel : ViewModel
     {
         //TODO
+        public Command AddDepartmentCommand { get; private set; }
+        public Command<DepartmentDto> EditDepartmentCommand { get; private set; }
+        //TODO
 
         public override string Caption
         {
             get
             {
-                //TODO
                 return "Departments";
             }
         }
 
+        public DepartmentListViewModel()
+        {
+            //TODO
+            AddDepartmentCommand = new Command(AddDepartment);
+            EditDepartmentCommand
+                = new Command<DepartmentDto>(x => x != null, EditDepartment);
+            //TODO
+        }
+
+        public override void RefreshAll()
+        {
+            //TODO
+            base.RefreshAll();
+        }
+
+        private void AddDepartment()
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
+
+        private void EditDepartment(DepartmentDto obj)
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
         //TODO
     }
 }

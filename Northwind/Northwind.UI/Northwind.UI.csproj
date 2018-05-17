@@ -66,6 +66,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Common\Command.cs" />
     <Compile Include="Projects\ProjectListViewModel.cs" />
     <Compile Include="Employees\EmployeeListViewModel.cs" />
     <Compile Include="Departments\DepartmentListViewModel.cs" />
@@ -123,6 +124,11 @@
   <ItemGroup>
     <Resource Include="Images\Icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Logic\Northwind.Logic.csproj">
+      <Project>{bba3e16d-6b31-4c1c-b512-970a48fc35ea}</Project>
+      <Name>Northwind.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

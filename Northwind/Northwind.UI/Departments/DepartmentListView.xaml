@@ -4,8 +4,19 @@
     <DataTemplate x:Key="DepartmentListView"
                   DataType="departments:DepartmentListViewModel">
         <DockPanel>
-            <TextBlock Text="DepartmentListView"/>
-            <!--TODO-->
+            <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                <Button Command="{Binding AddDepartmentCommand}" Padding="3"
+                        Content="Add"/>
+                <Button Command="{Binding EditDepartmentCommand}" Padding="3"
+                        CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"
+                        Content="Edit"/>
+                <Button Padding="3" Content="Delete"/>
+            </StackPanel>
+
+            <DataGrid x:Name="grid">
+
+            </DataGrid>
         </DockPanel>
     </DataTemplate>
 </ResourceDictionary>
