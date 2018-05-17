@@ -9,6 +9,7 @@ namespace Northwind.UI.Departments
         //TODO
         public Command AddDepartmentCommand { get; private set; }
         public Command<DepartmentDto> EditDepartmentCommand { get; private set; }
+        public Command<DepartmentDto> DeleteDepartmentCommand { get; private set; }
         //TODO
 
         public override string Caption
@@ -25,6 +26,8 @@ namespace Northwind.UI.Departments
             AddDepartmentCommand = new Command(AddDepartment);
             EditDepartmentCommand
                 = new Command<DepartmentDto>(x => x != null, EditDepartment);
+            DeleteDepartmentCommand
+                = new Command<DepartmentDto>(x => x != null, DeleteDepartment);
             //TODO
         }
 
@@ -45,6 +48,11 @@ namespace Northwind.UI.Departments
             //TODO
             throw new NotImplementedException();
         }
-        //TODO
+
+        private void DeleteDepartment(DepartmentDto obj)
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
     }
 }

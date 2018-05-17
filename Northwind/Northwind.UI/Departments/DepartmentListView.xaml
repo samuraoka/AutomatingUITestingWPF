@@ -11,7 +11,9 @@
                 <Button Command="{Binding EditDepartmentCommand}" Padding="3"
                         CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"
                         Content="Edit"/>
-                <Button Padding="3" Content="Delete"/>
+                <Button Command="{Binding DeleteDepartmentCommand}" Padding="3"
+                        CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"
+                        Content="Delete"/>
             </StackPanel>
 
             <DataGrid x:Name="grid">
