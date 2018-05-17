@@ -72,6 +72,7 @@ namespace Northwind.Logic.Common
             // NHibernate
             // https://www.nuget.org/packages/NHibernate/
             // Install-Package -Id NHibernate -Project Northwind.Logic 
+            // Install-Package -Id NHibernate -Project Northwind.UI 
             return NHibernateUtil.GetClass(this);
         }
     }

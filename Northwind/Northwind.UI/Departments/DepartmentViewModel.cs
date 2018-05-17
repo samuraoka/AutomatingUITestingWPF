@@ -6,6 +6,8 @@ namespace Northwind.UI.Departments
 {
     public class DepartmentViewModel : ViewModel
     {
+        private readonly DepartmentRepository _repository;
+
         //TODO
         public Department Department { get; private set; }
         public Command OkCommand { get; private set; }
@@ -33,10 +35,9 @@ namespace Northwind.UI.Departments
             get { return 146; }
         }
 
-        //TODO
-
         public DepartmentViewModel(Department department)
         {
+            _repository = new DepartmentRepository();
             //TODO
             Department = department;
 
@@ -46,8 +47,8 @@ namespace Northwind.UI.Departments
 
         private void Save()
         {
-            //TODO
-            throw new NotImplementedException();
+            _repository.Save(Department);
+            DialogResult = true;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Northwind.Logic.Utils;
+using System.Windows;
 
 namespace Northwind.UI
 {
@@ -7,6 +8,9 @@ namespace Northwind.UI
     /// </summary>
     public partial class App : Application
     {
-        //TODO
+        public App()
+        {
+            Initer.Init();
+        }
     }
 }
