@@ -19,7 +19,11 @@ namespace Northwind.UI.Common
             this.canExecute = canExecute;
         }
 
-        public event EventHandler CanExecuteChanged; //TODO
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public bool CanExecute(object parameter)
         {
