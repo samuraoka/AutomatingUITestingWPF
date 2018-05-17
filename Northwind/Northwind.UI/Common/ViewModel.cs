@@ -1,5 +1,5 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Northwind.UI.Common
 {
@@ -36,10 +36,9 @@ namespace Northwind.UI.Common
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        private void Notify()
+        private void Notify([CallerMemberName]string propertyName = null)
         {
-            //TODO
-            throw new NotImplementedException();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         //TODO

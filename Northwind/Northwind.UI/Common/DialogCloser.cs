@@ -19,8 +19,11 @@ namespace Northwind.UI.Common
         private static void DialogResultChanged(
             DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            //TODO
-            throw new NotImplementedException();
+            var window = d as Window;
+            if (window != null)
+            {
+                window.DialogResult = e.NewValue as bool?;
+            }
         }
     }
 }
