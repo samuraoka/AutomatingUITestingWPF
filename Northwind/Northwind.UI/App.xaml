@@ -1,9 +1,8 @@
 ﻿<Application x:Class="Northwind.UI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Northwind.UI"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Common/MainWindow.xaml">
     <Application.Resources>
-         
+        <!--TODO-->
     </Application.Resources>
 </Application>
