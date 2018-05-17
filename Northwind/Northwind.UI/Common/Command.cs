@@ -23,13 +23,12 @@ namespace Northwind.UI.Common
 
         public bool CanExecute(object parameter)
         {
-            if (parameter == null) // TODO
+            if (parameter == null && typeof(T).IsValueType)
             {
                 return false;
             }
 
-            //TODO
-            throw new NotImplementedException();
+            return canExecute((T)parameter);
         }
 
         public void Execute(object parameter)
