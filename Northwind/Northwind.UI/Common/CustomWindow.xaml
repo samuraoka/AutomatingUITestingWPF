@@ -10,6 +10,11 @@
         WindowStartupLocation="CenterOwner"
         Icon="{StaticResource imgApplicationIcon}">
     <Grid>
-        <!--TODO-->
+        <Grid.Resources>
+            <common:MainDataTemplateSelector x:Key="selector"/>
+        </Grid.Resources>
+
+        <ContentPresenter ContentTemplateSelector="{StaticResource selector}"
+                          Content="{Binding}"/>
     </Grid>
 </Window>

@@ -1,11 +1,22 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Northwind.UI.Common
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {
         protected static readonly DialogService _dialogService = new DialogService();
-        //TODO
+        private bool? _dialogResult;
+
+        public bool? DialogResult
+        {
+            get { return _dialogResult; }
+            protected set
+            {
+                _dialogResult = value;
+                Notify();
+            }
+        }
 
         public virtual string Caption
         {
@@ -23,6 +34,13 @@ namespace Northwind.UI.Common
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        private void Notify()
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
 
         //TODO
 

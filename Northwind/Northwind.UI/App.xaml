@@ -7,6 +7,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Common/Common.xaml"/>
                 <ResourceDictionary Source="Departments/DepartmentListView.xaml"/>
+                <ResourceDictionary Source="Departments/DepartmentView.xaml"/>
                 <!--TODO-->
                 <ResourceDictionary Source="Employees/EmployeeListView.xaml"/>
                 <!--TODO-->

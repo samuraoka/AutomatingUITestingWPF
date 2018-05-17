@@ -1,5 +1,6 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
+using System;
 
 namespace Northwind.UI.Departments
 {
@@ -7,6 +8,15 @@ namespace Northwind.UI.Departments
     {
         //TODO
         public Department Department { get; private set; }
+        public Command OkCommand { get; private set; }
+        public Command CancelCommand { get; private set; }
+
+        public string Name
+        {
+            get { return Department.Name; }
+            set { Department.Name = value; }
+        }
+
         //TODO
 
         public override string Caption
@@ -29,7 +39,15 @@ namespace Northwind.UI.Departments
         {
             //TODO
             Department = department;
+
+            OkCommand = new Command(() => !string.IsNullOrWhiteSpace(Name), Save);
+            CancelCommand = new Command(() => DialogResult = false);
+        }
+
+        private void Save()
+        {
             //TODO
+            throw new NotImplementedException();
         }
     }
 }
