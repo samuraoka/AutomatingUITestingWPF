@@ -16,8 +16,16 @@
                         Content="Delete"/>
             </StackPanel>
 
-            <DataGrid x:Name="grid">
-
+            <DataGrid ItemsSource="{Binding Path=Departments}" IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="DarkGray"
+                      VerticalGridLinesBrush="DarkGray" x:Name="grid"
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Employee Count"
+                                        Binding="{Binding EmployeeCount}"/>
+                </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
     </DataTemplate>

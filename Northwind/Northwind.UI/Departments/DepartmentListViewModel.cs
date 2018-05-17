@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using Northwind.Logic.Model;
 using Northwind.UI.Common;
 
@@ -10,7 +11,7 @@ namespace Northwind.UI.Departments
         public Command AddDepartmentCommand { get; private set; }
         public Command<DepartmentDto> EditDepartmentCommand { get; private set; }
         public Command<DepartmentDto> DeleteDepartmentCommand { get; private set; }
-        //TODO
+        public ObservableCollection<DepartmentDto> Departments { get; private set; }
 
         public override string Caption
         {
