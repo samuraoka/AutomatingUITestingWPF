@@ -40,8 +40,13 @@ namespace Northwind.UI.Departments
 
         private void AddDepartment()
         {
-            //TODO
-            throw new NotImplementedException();
+            var viewModel = new DepartmentViewModel(new Department());
+
+            if (_dialogService.ShowDialog(viewModel) == true)
+            {
+                //TODO next
+                throw new NotImplementedException();
+            }
         }
 
         private void EditDepartment(DepartmentDto obj)
