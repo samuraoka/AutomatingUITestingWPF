@@ -7,6 +7,7 @@ using FluentNHibernate.Conventions.Inspections;
 using FluentNHibernate.Conventions.Instances;
 using FluentNHibernate.Mapping;
 using NHibernate;
+using System.Reflection;
 
 namespace Northwind.Logic.Utils
 {
@@ -30,10 +31,14 @@ namespace Northwind.Logic.Utils
             // https://www.nuget.org/packages/FluentNHibernate/
             // Install-Package -Id FluentNHibernate -Project Northwind.Logic
             // Install-Package -Id FluentNHibernate -Project Northwind.UI
+            //
+            // Configuration - Fluent NHibernate in a Nutshell
+            // https://github.com/FluentNHibernate/fluent-nhibernate/wiki/Getting-started#configuration
             var configuration = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012.ConnectionString(
                     connectionString))
                 .Mappings(m => m.FluentMappings
+                .AddFromAssembly(Assembly.GetExecutingAssembly())
                 .Conventions.Add(
                     ForeignKey.EndsWith("ID"),
                     ConventionBuilder.Property.When(criteria =>
@@ -96,7 +101,7 @@ namespace Northwind.Logic.Utils
             public void Apply(IIdentityInstance instance)
             {
                 instance.Column(instance.EntityType.Name + "ID");
-                instance.GeneratedBy.HiLo("[dbo].{Ids]", "NextHigh", "10",
+                instance.GeneratedBy.HiLo("[dbo].[Ids]", "NextHigh", "10",
                     $"EntityName = '{instance.EntityType.Name}'");
             }
         }
