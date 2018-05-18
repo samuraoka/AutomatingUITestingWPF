@@ -3,7 +3,22 @@
                     xmlns:projects="clr-namespace:Northwind.UI.Projects">
     <DataTemplate x:Key="NewProjectView" DataType="projects:NewProjectViewModel">
         <Grid>
-            <!--TODO-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ContentPresenter Content="{Binding Path=MainProperties}"
+                              ContentTemplate="{StaticResource ProjectMainPropertiesView}"/>
+
+            <Grid Grid.Row="1" Margin="5 15 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Padding="5" Margin="10" Content="OK"/>
+                <Button Grid.Column="1" Padding="5" Margin="10" Content="Cancel"/>
+            </Grid>
         </Grid>
     </DataTemplate>
 </ResourceDictionary>
