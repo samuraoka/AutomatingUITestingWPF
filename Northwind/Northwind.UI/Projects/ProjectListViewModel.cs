@@ -47,10 +47,16 @@ namespace Northwind.UI.Projects
             }
         }
 
-        private void EditProject(ProjectDto obj)
+        private void EditProject(ProjectDto projectDto)
         {
-            //TODO next
-            throw new NotImplementedException();
+            var project = _repository.GetById(projectDto.Id);
+            var viewModel = new ExistingProjectViewModel(project);
+
+            if (_dialogService.ShowDialog(viewModel) == true)
+            {
+                //TODO next
+                throw new NotImplementedException();
+            }
         }
 
         private void DeleteProject(ProjectDto obj)

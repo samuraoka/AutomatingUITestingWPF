@@ -5,7 +5,13 @@ namespace Northwind.Logic.Common
     public abstract class Repository<T>
         where T : Entity
     {
-        //TODO
+        public T GetById(long id)
+        {
+            using (var unitOfWork = new UnitOfWork())
+            {
+                return unitOfWork.Get<T>(id);
+            }
+        }
 
         public void Save(T entity)
         {

@@ -51,7 +51,10 @@ namespace Northwind.Logic.Utils
             _isCommitted = true;
         }
 
-        //TODO
+        internal T Get<T>(long id)
+        {
+            return _session.Get<T>(id);
+        }
 
         internal void SaveOrUpdate<T>(T entity)
         {
