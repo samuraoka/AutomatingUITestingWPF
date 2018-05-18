@@ -54,8 +54,9 @@ namespace Northwind.UI.Projects
 
             if (_dialogService.ShowDialog(viewModel) == true)
             {
-                //TODO next
-                throw new NotImplementedException();
+                int index = Projects.IndexOf(projectDto);
+                Projects[index] = _repository.GetProjectDto(
+                    viewModel.Project.Id);
             }
         }
 

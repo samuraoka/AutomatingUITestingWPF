@@ -1,13 +1,13 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
-using System;
 using System.Collections.Generic;
 
 namespace Northwind.UI.Projects
 {
     public class ExistingProjectViewModel : ViewModel
     {
-        //TODO
+        private readonly ProjectRepository _repository;
+
         public Project Project { get; private set; }
         public Command OkCommand { get; private set; }
         public Command CancelCommand { get; private set; }
@@ -30,7 +30,7 @@ namespace Northwind.UI.Projects
 
         public ExistingProjectViewModel(Project project)
         {
-            //TODO
+            _repository = new ProjectRepository();
             Project = project;
 
             var mainProperties = new ProjectMainPropertiesViewModel(project);
@@ -46,8 +46,8 @@ namespace Northwind.UI.Projects
 
         private void Save()
         {
-            //TODO next
-            throw new NotImplementedException();
+            _repository.Save(Project);
+            DialogResult = true;
         }
     }
 }
