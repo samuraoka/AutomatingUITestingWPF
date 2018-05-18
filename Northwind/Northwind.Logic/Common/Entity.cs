@@ -3,17 +3,16 @@ using System;
 
 namespace Northwind.Logic.Common
 {
-    public abstract class Entity : IEquatable<Entity>
+    public abstract class Entity
     {
         public virtual long Id { get; protected set; }
 
+        // NHibernate: Reasons for overriding Equals and GetHashCode
+        // https://stackoverflow.com/questions/5851398/nhibernate-reasons-for-overriding-equals-and-gethashcode
         public override bool Equals(object obj)
         {
-            return Equals(obj as Entity);
-        }
+            var compareTo = obj as Entity;
 
-        public bool Equals(Entity compareTo)
-        {
             if (ReferenceEquals(compareTo, null))
             {
                 return false;
