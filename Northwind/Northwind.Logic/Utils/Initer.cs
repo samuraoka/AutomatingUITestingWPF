@@ -12,10 +12,7 @@
             //
             // Starting LocalDB and Connecting to LocalDB
             // https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-2016-express-localdb?view=sql-server-2017#starting-localdb-and-connecting-to-localdb
-            SessionFactory.Init(
-                //@"Server=.;Database=Northwind;Trusted_Connection=true");
-                //@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true");
-                @"Data Source = (localdb)\ProjectsV13; Initial Catalog = Northwind; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SessionFactory.Init(@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true");
         }
     }
 }
