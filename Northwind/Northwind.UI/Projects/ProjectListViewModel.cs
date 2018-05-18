@@ -33,8 +33,13 @@ namespace Northwind.UI.Projects
 
         private void AddProject()
         {
-            //TODO
-            throw new NotImplementedException();
+            var viewModel = new NewProjectViewModel();
+
+            if (_dialogService.ShowDialog(viewModel) == true)
+            {
+                //TODO
+                throw new NotImplementedException();
+            }
         }
 
         private void EditProject(ProjectDto obj)

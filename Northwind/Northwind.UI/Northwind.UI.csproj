@@ -98,6 +98,7 @@
     <Compile Include="Common\DialogCloser.cs" />
     <Compile Include="Common\DialogService.cs" />
     <Compile Include="Departments\DepartmentViewModel.cs" />
+    <Compile Include="Projects\NewProjectViewModel.cs" />
     <Compile Include="Projects\ProjectListViewModel.cs" />
     <Compile Include="Employees\EmployeeListViewModel.cs" />
     <Compile Include="Departments\DepartmentListViewModel.cs" />
@@ -121,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Employees\EmployeeListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Projects\NewProjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
