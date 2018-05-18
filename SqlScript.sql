@@ -69,20 +69,20 @@ CREATE TABLE [dbo].[Project](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ProjectInvolement]    Script Date: 7/11/2015 9:56:20 AM ******/
+/****** Object:  Table [dbo].[ProjectInvolvement]    Script Date: 7/11/2015 9:56:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[ProjectInvolement](
-	[ProjectInvolementID] [bigint] NOT NULL,
+CREATE TABLE [dbo].[ProjectInvolvement](
+	[ProjectInvolvementID] [bigint] NOT NULL,
 	[ProjectID] [bigint] NOT NULL,
 	[EmployeeID] [bigint] NOT NULL,
 	[Role] [int] NOT NULL,
 	[IsMainForEmployee] [bit] NOT NULL,
- CONSTRAINT [PK_ProjectInvolement] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_ProjectInvolvement] PRIMARY KEY CLUSTERED 
 (
-	[ProjectInvolementID] ASC
+	[ProjectInvolvementID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
@@ -97,15 +97,15 @@ REFERENCES [dbo].[Department] ([DepartmentID])
 GO
 ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_Department]
 GO
-ALTER TABLE [dbo].[ProjectInvolement]  WITH CHECK ADD  CONSTRAINT [FK_ProjectInvolement_Employee] FOREIGN KEY([EmployeeID])
+ALTER TABLE [dbo].[ProjectInvolvement]  WITH CHECK ADD  CONSTRAINT [FK_ProjectInvolvement_Employee] FOREIGN KEY([EmployeeID])
 REFERENCES [dbo].[Employee] ([EmployeeID])
 GO
-ALTER TABLE [dbo].[ProjectInvolement] CHECK CONSTRAINT [FK_ProjectInvolement_Employee]
+ALTER TABLE [dbo].[ProjectInvolvement] CHECK CONSTRAINT [FK_ProjectInvolvement_Employee]
 GO
-ALTER TABLE [dbo].[ProjectInvolement]  WITH CHECK ADD  CONSTRAINT [FK_ProjectInvolement_Project] FOREIGN KEY([ProjectID])
+ALTER TABLE [dbo].[ProjectInvolvement]  WITH CHECK ADD  CONSTRAINT [FK_ProjectInvolvement_Project] FOREIGN KEY([ProjectID])
 REFERENCES [dbo].[Project] ([ProjectID])
 GO
-ALTER TABLE [dbo].[ProjectInvolement] CHECK CONSTRAINT [FK_ProjectInvolement_Project]
+ALTER TABLE [dbo].[ProjectInvolvement] CHECK CONSTRAINT [FK_ProjectInvolvement_Project]
 GO
 
 USE [Northwind]
@@ -116,5 +116,5 @@ INSERT [dbo].[Ids] ([EntityName], [NextHigh]) VALUES (N'Employee', 0)
 GO
 INSERT [dbo].[Ids] ([EntityName], [NextHigh]) VALUES (N'Project', 0)
 GO
-INSERT [dbo].[Ids] ([EntityName], [NextHigh]) VALUES (N'ProjectInvolement', 0)
+INSERT [dbo].[Ids] ([EntityName], [NextHigh]) VALUES (N'ProjectInvolvement', 0)
 GO
