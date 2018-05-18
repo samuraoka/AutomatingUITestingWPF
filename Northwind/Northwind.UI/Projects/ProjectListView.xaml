@@ -3,8 +3,27 @@
                     xmlns:projects="clr-namespace:Northwind.UI.Projects">
     <DataTemplate x:Key="ProjectListView" DataType="projects:ProjectListViewModel">
         <DockPanel>
-            <TextBlock Text="ProjectListView"/>
-            <!--TODO-->
+            <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left"
+                   Orientation="Horizontal">
+                <Button Command="{Binding AddProjectCommand}" Padding="3" Content="Add"/>
+                <Button Command="{Binding EditProjectCommand}" Padding="3"
+                    CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"
+                    Content="Edit"/>
+                <Button Command="{Binding DeleteProjectCommand}" Padding="3"
+                    CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"
+                    Content="Delete"/>
+            </StackPanel>
+
+            <DataGrid ItemsSource="{Binding Path=Projects}" IsReadOnly="True"
+                  AutoGenerateColumns="False" HorizontalGridLinesBrush="DarkGray"
+                  VerticalGridLinesBrush="DarkGray" x:Name="grid"
+                  SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Stage" Binding="{Binding Stage}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </DockPanel>
     </DataTemplate>
 </ResourceDictionary>
