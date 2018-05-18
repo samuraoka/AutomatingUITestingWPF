@@ -1,6 +1,5 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
-using System;
 
 namespace Northwind.UI.Projects
 {
@@ -39,8 +38,8 @@ namespace Northwind.UI.Projects
 
         private void Save()
         {
-            //TODO
-            throw new NotImplementedException();
+            _repository.Save(Project);
+            DialogResult = true;
         }
     }
 }

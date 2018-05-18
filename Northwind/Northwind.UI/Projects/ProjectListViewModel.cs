@@ -30,7 +30,11 @@ namespace Northwind.UI.Projects
                 x => x != null, DeleteProject);
         }
 
-        //TODO
+        public override void RefreshAll()
+        {
+            Projects = new ObservableCollection<ProjectDto>(
+                _repository.GetProjectDtoList());
+        }
 
         private void AddProject()
         {
@@ -38,14 +42,14 @@ namespace Northwind.UI.Projects
 
             if (_dialogService.ShowDialog(viewModel) == true)
             {
-                //TODO
-                throw new NotImplementedException();
+                var dto = _repository.GetProjectDto(viewModel.Project.Id);
+                Projects.Add(dto);
             }
         }
 
         private void EditProject(ProjectDto obj)
         {
-            //TODO
+            //TODO next
             throw new NotImplementedException();
         }
 

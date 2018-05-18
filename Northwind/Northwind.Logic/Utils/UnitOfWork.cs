@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using System;
 using System.Data;
+using System.Linq;
 
 namespace Northwind.Logic.Utils
 {
@@ -54,11 +55,15 @@ namespace Northwind.Logic.Utils
 
         internal void SaveOrUpdate<T>(T entity)
         {
-            //TODO next
             _session.SaveOrUpdate(entity);
         }
 
         //TODO
+
+        internal IQueryable<T> Query<T>()
+        {
+            return _session.Query<T>();
+        }
 
         internal ISQLQuery CreateSqlQuery(string query)
         {

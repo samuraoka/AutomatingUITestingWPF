@@ -1,4 +1,5 @@
 ﻿using Northwind.Logic.Common;
+using System.Collections.Generic;
 
 namespace Northwind.Logic.Model
 {
@@ -8,7 +9,8 @@ namespace Northwind.Logic.Model
         public virtual ProjectStage Stage { get; set; }
         public virtual int Price { get; set; }
 
-        //TODO
+        protected virtual IList<ProjectInvolvement> InvolvementsInternal
+        { get; set; }
 
         public Project()
         {
