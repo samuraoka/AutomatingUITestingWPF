@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using Northwind.Logic.Model;
+﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
+using System;
+using System.Collections.ObjectModel;
 
 namespace Northwind.UI.Departments
 {
     public class DepartmentListViewModel : ViewModel
     {
-        //TODO
+        private readonly DepartmentRepository _repository;
         public Command AddDepartmentCommand { get; private set; }
         public Command<DepartmentDto> EditDepartmentCommand { get; private set; }
         public Command<DepartmentDto> DeleteDepartmentCommand { get; private set; }
@@ -15,27 +15,25 @@ namespace Northwind.UI.Departments
 
         public override string Caption
         {
-            get
-            {
-                return "Departments";
-            }
+            get { return "Departments"; }
         }
 
         public DepartmentListViewModel()
         {
-            //TODO
+            _repository = new DepartmentRepository();
+            RefreshAll();
+
             AddDepartmentCommand = new Command(AddDepartment);
             EditDepartmentCommand
                 = new Command<DepartmentDto>(x => x != null, EditDepartment);
             DeleteDepartmentCommand
                 = new Command<DepartmentDto>(x => x != null, DeleteDepartment);
-            //TODO
         }
 
         public override void RefreshAll()
         {
-            //TODO
-            base.RefreshAll();
+            Departments = new ObservableCollection<DepartmentDto>(
+                _repository.GetDepartmentDtoList());
         }
 
         private void AddDepartment()
@@ -44,8 +42,9 @@ namespace Northwind.UI.Departments
 
             if (_dialogService.ShowDialog(viewModel) == true)
             {
-                //TODO next
-                throw new NotImplementedException();
+                var dto = _repository.GetDepartmentDto(
+                    viewModel.Department.Id);
+                Departments.Add(dto);
             }
         }
 

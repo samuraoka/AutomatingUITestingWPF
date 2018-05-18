@@ -59,5 +59,12 @@ namespace Northwind.Logic.Utils
         }
 
         //TODO
+
+        internal ISQLQuery CreateSqlQuery(string query)
+        {
+            return _session.CreateSQLQuery(query);
+        }
+
+        //TODO
     }
 }
