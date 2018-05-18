@@ -11,12 +11,25 @@ namespace Northwind.Logic.Model
 
         protected virtual IList<ProjectInvolvement> InvolvementsInternal
         { get; set; }
+        //TODO
 
         public Project()
         {
             Stage = ProjectStage.Presale;
         }
 
-        //TODO
+        public virtual void Promote()
+        {
+            switch (Stage)
+            {
+                case ProjectStage.Presale:
+                    Stage = ProjectStage.Development;
+                    break;
+
+                case ProjectStage.Development:
+                    Stage = ProjectStage.Closed;
+                    break;
+            }
+        }
     }
 }

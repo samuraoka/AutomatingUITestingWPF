@@ -1,6 +1,5 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
-using System;
 
 namespace Northwind.UI.Projects
 {
@@ -47,11 +46,12 @@ namespace Northwind.UI.Projects
 
         private void PromoteProject()
         {
-            //TODO
-            throw new NotImplementedException();
-        }
+            Project.Promote();
+            WasPromoted = true;
 
-        //TODO
+            Notify(() => WasPromoted);
+            Notify(() => Stage);
+        }
 
         public bool IsValid()
         {

@@ -1,11 +1,14 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
 namespace Northwind.UI.Common
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {
-        protected static readonly DialogService _dialogService = new DialogService();
+        protected static readonly DialogService _dialogService
+            = new DialogService();
         private bool? _dialogResult;
 
         public bool? DialogResult
@@ -36,12 +39,24 @@ namespace Northwind.UI.Common
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        private void Notify([CallerMemberName]string propertyName = null)
+        protected void Notify([CallerMemberName]string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this,
+                new PropertyChangedEventArgs(propertyName));
         }
 
-        //TODO
+        protected void Notify<T>(Expression<Func<T>> propertyExpression)
+        {
+            var expression = propertyExpression.Body as MemberExpression;
+
+            if (expression == null)
+            {
+                throw new ArgumentException(
+                    propertyExpression.Body.ToString());
+            }
+
+            Notify(expression.Member.Name);
+        }
 
         public virtual void RefreshAll()
         {
