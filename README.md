@@ -6,3 +6,7 @@ https://app.pluralsight.com/library/courses/wpf-applications-automating-ui-tests
 * MS SQL LocalDB
 * NHibernate
 * FluentNHibernate
+
+## To run the project:
+1. Create a Northwind database using the script SqlScript.sql
+2. Change the connection string in Northwind\Northwind.Logic\Utils\Initer.cs
