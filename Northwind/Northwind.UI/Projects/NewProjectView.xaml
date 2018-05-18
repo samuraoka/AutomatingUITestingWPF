@@ -16,8 +16,10 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Padding="5" Margin="10" Content="OK"/>
-                <Button Grid.Column="1" Padding="5" Margin="10" Content="Cancel"/>
+                <Button Grid.Column="0" Command="{Binding OkCommand}"
+                        Padding="5" Margin="10" Content="OK"/>
+                <Button Grid.Column="1" Command="{Binding CancelCommand}"
+                        Padding="5" Margin="10" Content="Cancel"/>
             </Grid>
         </Grid>
     </DataTemplate>

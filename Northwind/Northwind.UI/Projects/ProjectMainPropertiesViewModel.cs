@@ -1,6 +1,6 @@
-﻿using System;
-using Northwind.Logic.Model;
+﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
+using System;
 
 namespace Northwind.UI.Projects
 {
@@ -52,5 +52,10 @@ namespace Northwind.UI.Projects
         }
 
         //TODO
+
+        public bool IsValid()
+        {
+            return string.IsNullOrWhiteSpace(Name) == false && Price > 0;
+        }
     }
 }

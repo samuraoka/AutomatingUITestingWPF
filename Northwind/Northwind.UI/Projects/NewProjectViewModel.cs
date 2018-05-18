@@ -1,12 +1,16 @@
-﻿using Northwind.UI.Common;
+﻿using Northwind.Logic.Model;
+using Northwind.UI.Common;
+using System;
 
 namespace Northwind.UI.Projects
 {
     public class NewProjectViewModel : ViewModel
     {
-        //TODO
+        private readonly ProjectRepository _repository;
         public ProjectMainPropertiesViewModel MainProperties { get; private set; }
-        //TODO
+        public Project Project { get; private set; }
+        public Command OkCommand { get; private set; }
+        public Command CancelCommand { get; private set; }
 
         public override string Caption
         {
@@ -23,6 +27,20 @@ namespace Northwind.UI.Projects
             get { return 238; }
         }
 
-        //TODO
+        public NewProjectViewModel()
+        {
+            _repository = new ProjectRepository();
+            Project = new Project();
+            MainProperties = new ProjectMainPropertiesViewModel(Project);
+
+            OkCommand = new Command(() => MainProperties.IsValid(), Save);
+            CancelCommand = new Command(() => DialogResult = false);
+        }
+
+        private void Save()
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
     }
 }
