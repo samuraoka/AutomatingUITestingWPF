@@ -100,6 +100,7 @@
     <Compile Include="Departments\DepartmentViewModel.cs" />
     <Compile Include="Projects\ExistingProjectViewModel.cs" />
     <Compile Include="Projects\NewProjectViewModel.cs" />
+    <Compile Include="Projects\ProjectEmployeeListViewModel.cs" />
     <Compile Include="Projects\ProjectListViewModel.cs" />
     <Compile Include="Employees\EmployeeListViewModel.cs" />
     <Compile Include="Departments\DepartmentListViewModel.cs" />
@@ -131,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Projects\NewProjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Projects\ProjectEmployeeListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

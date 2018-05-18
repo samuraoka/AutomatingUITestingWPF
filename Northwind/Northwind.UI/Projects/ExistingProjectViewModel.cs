@@ -1,5 +1,7 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
+using System;
+using System.Collections.Generic;
 
 namespace Northwind.UI.Projects
 {
@@ -7,7 +9,9 @@ namespace Northwind.UI.Projects
     {
         //TODO
         public Project Project { get; private set; }
-        //TODO
+        public Command OkCommand { get; private set; }
+        public Command CancelCommand { get; private set; }
+        public List<ViewModel> Tabs { get; private set; }
 
         public override string Caption
         {
@@ -29,9 +33,21 @@ namespace Northwind.UI.Projects
             //TODO
             Project = project;
 
-            //TODO
+            var mainProperties = new ProjectMainPropertiesViewModel(project);
+            Tabs = new List<ViewModel>
+            {
+                mainProperties,
+                new ProjectEmployeeListViewModel(project),
+            };
+
+            OkCommand = new Command(() => mainProperties.IsValid(), Save);
+            CancelCommand = new Command(() => DialogResult = false);
         }
 
-        //TODO
+        private void Save()
+        {
+            //TODO next
+            throw new NotImplementedException();
+        }
     }
 }

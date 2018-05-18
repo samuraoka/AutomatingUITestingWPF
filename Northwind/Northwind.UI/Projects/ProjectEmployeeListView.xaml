@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:projects="clr-namespace:Northwind.UI.Projects">
+    <DataTemplate x:Key="ProjectEmployeeListView"
+                  DataType="projects:ProjectEmployeeListViewModel">
+        <DockPanel>
+            <!--TODO next-->
+            <TextBlock Text="ProjectEmployeeListView"/>
+        </DockPanel>
+    </DataTemplate>
+</ResourceDictionary>

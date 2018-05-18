@@ -16,7 +16,7 @@
                 <!--TODO-->
                 <ResourceDictionary Source="Projects/NewProjectView.xaml"/>
                 <ResourceDictionary Source="Projects/ExistingProjectView.xaml"/>
-                <!--TODO-->
+                <ResourceDictionary Source="Projects/ProjectEmployeeListView.xaml"/>
                 <ResourceDictionary Source="Dashboard/DashboardView.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
