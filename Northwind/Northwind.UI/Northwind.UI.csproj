@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Common\DialogCloser.cs" />
     <Compile Include="Common\DialogService.cs" />
+    <Compile Include="Common\InvertedBooleanConverter.cs" />
     <Compile Include="Departments\DepartmentViewModel.cs" />
     <Compile Include="Employees\EmployeeMainPropertiesViewModel.cs" />
     <Compile Include="Employees\NewEmployeeViewModel.cs" />

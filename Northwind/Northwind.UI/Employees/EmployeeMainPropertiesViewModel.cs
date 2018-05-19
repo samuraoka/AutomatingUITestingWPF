@@ -1,4 +1,5 @@
-﻿using Northwind.Logic.Model;
+﻿using System;
+using Northwind.Logic.Model;
 using Northwind.UI.Common;
 
 namespace Northwind.UI.Employees
@@ -7,6 +8,8 @@ namespace Northwind.UI.Employees
     {
         private readonly Employee _employee;
         //TODO
+
+        public Command ChangeDepartmentCommand { get; private set; }
 
         public string FirstName
         {
@@ -20,7 +23,17 @@ namespace Northwind.UI.Employees
             set { _employee.LastName = value; }
         }
 
-        //TODO
+        public bool IsFullTimer
+        {
+            get { return _employee.IsFullTimer; }
+            set { _employee.IsFullTimer = value; }
+        }
+
+        public string About
+        {
+            get { return _employee.About; }
+            set { _employee.About = value; }
+        }
 
         public string DepartmentName
         {
@@ -40,7 +53,8 @@ namespace Northwind.UI.Employees
         {
             //TODO
             _employee = employee;
-            //TODO
+
+            ChangeDepartmentCommand = new Command(ChangeDepartment);
         }
 
         public bool IsValid()
@@ -50,6 +64,10 @@ namespace Northwind.UI.Employees
                 && string.IsNullOrWhiteSpace(DepartmentName) == false;
         }
 
-        //TODO
+        private void ChangeDepartment()
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
     }
 }

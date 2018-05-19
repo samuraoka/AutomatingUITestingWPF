@@ -6,8 +6,10 @@ namespace Northwind.Logic.Model
     {
         public virtual string FirstName { get; set; }
         public virtual string LastName { get; set; }
-        //TODO
+        public virtual string About { get; set; }
         public virtual Department Department { get; set; }
+        public virtual bool IsFullTimer { get; set; }
+
         //TODO
     }
 }
