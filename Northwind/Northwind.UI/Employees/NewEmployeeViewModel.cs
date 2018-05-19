@@ -1,16 +1,13 @@
-﻿using System;
-using Northwind.Logic.Model;
+﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
 
 namespace Northwind.UI.Employees
 {
     public class NewEmployeeViewModel : ViewModel
     {
-        //TODO
-        public EmployeeMainPropertiesViewModel
-            MainProperties { get; private set; }
+        private readonly EmployeeRepository _repository;
+        public EmployeeMainPropertiesViewModel MainProperties { get; private set; }
         public Employee Employee { get; private set; }
-        //TODO
         public Command OkCommand { get; private set; }
         public Command CancelCommand { get; private set; }
 
@@ -31,7 +28,7 @@ namespace Northwind.UI.Employees
 
         public NewEmployeeViewModel()
         {
-            //TODO
+            _repository = new EmployeeRepository();
             Employee = new Employee();
             MainProperties = new EmployeeMainPropertiesViewModel(Employee);
 
@@ -41,8 +38,8 @@ namespace Northwind.UI.Employees
 
         private void Save()
         {
-            //TODO next
-            throw new NotImplementedException();
+            _repository.Save(Employee);
+            DialogResult = true;
         }
     }
 }

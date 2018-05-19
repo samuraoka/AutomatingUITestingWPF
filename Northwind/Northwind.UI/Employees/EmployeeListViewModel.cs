@@ -7,7 +7,7 @@ namespace Northwind.UI.Employees
 {
     public class EmployeeListViewModel : ViewModel
     {
-        //TODO
+        private readonly EmployeeRepository _repository;
         public Command AddEmployeeCommand { get; private set; }
         public Command<EmployeeDto> EditEmployeeCommand { get; private set; }
         public Command<EmployeeDto> DeleteEmployeeCommand { get; private set; }
@@ -20,7 +20,8 @@ namespace Northwind.UI.Employees
 
         public EmployeeListViewModel()
         {
-            //TODO
+            _repository = new EmployeeRepository();
+            RefreshAll();
 
             AddEmployeeCommand = new Command(AddEmployee);
             EditEmployeeCommand =
@@ -29,7 +30,11 @@ namespace Northwind.UI.Employees
                 new Command<EmployeeDto>(x => x != null, DeleteEmployee);
         }
 
-        //TODO
+        public override void RefreshAll()
+        {
+            Employees = new ObservableCollection<EmployeeDto>(
+                _repository.GetEmployeeDtoList());
+        }
 
         private void AddEmployee()
         {
@@ -37,15 +42,23 @@ namespace Northwind.UI.Employees
 
             if (_dialogService.ShowDialog(viewModel) == true)
             {
-                //TODO next
-                throw new NotImplementedException();
+                var empDto = _repository.GetEmployeeDto(viewModel.Employee.Id);
+                Employees.Add(empDto);
+
+                EditEmployee(empDto);
             }
         }
 
         private void EditEmployee(EmployeeDto employeeDto)
         {
-            //TODO
-            throw new NotImplementedException();
+            Employee emp = _repository.GetById(employeeDto.Id);
+            var viewModel = new ExistingEmployeeViewModel(emp);
+
+            if (_dialogService.ShowDialog(viewModel) == true)
+            {
+                //TODO next
+                throw new NotImplementedException();
+            }
         }
 
         private void DeleteEmployee(EmployeeDto obj)

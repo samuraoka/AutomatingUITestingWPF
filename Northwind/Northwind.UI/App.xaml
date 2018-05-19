@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="Employees/ChangeDepartmentView.xaml"/>
                 <ResourceDictionary Source="Projects/ProjectListView.xaml"/>
                 <ResourceDictionary Source="Projects/ProjectMainPropertiesView.xaml"/>
+                <ResourceDictionary Source="Employees/ExistingEmployeeView.xaml"/>
                 <ResourceDictionary Source="Employees/NewEmployeeView.xaml"/>
                 <!--TODO-->
                 <ResourceDictionary Source="Projects/NewProjectView.xaml"/>
