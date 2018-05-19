@@ -14,6 +14,8 @@
                 <ResourceDictionary Source="Projects/ProjectListView.xaml"/>
                 <ResourceDictionary Source="Projects/ProjectMainPropertiesView.xaml"/>
                 <!--TODO-->
+                <ResourceDictionary Source="Employees/NewEmployeeView.xaml"/>
+                <!--TODO-->
                 <ResourceDictionary Source="Projects/NewProjectView.xaml"/>
                 <ResourceDictionary Source="Projects/ExistingProjectView.xaml"/>
                 <ResourceDictionary Source="Projects/ProjectEmployeeListView.xaml"/>

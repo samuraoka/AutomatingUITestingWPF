@@ -33,8 +33,13 @@ namespace Northwind.UI.Employees
 
         private void AddEmployee()
         {
-            //TODO next
-            throw new NotImplementedException();
+            var viewModel = new NewEmployeeViewModel();
+
+            if (_dialogService.ShowDialog(viewModel) == true)
+            {
+                //TODO next
+                throw new NotImplementedException();
+            }
         }
 
         private void EditEmployee(EmployeeDto employeeDto)
