@@ -3,9 +3,28 @@
                     xmlns:employees="clr-namespace:Northwind.UI.Employees">
     <DataTemplate x:Key="NewEmployeeView"
                   DataType="employees:NewEmployeeViewModel">
-        <!--TODO next-->
-        <TextBlock>
-            NewEmployeeView
-        </TextBlock>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ContentPresenter
+                Content="{Binding EmployeeMainPropertiesViewModel}"
+                ContentTemplate="{StaticResource EmployeeMainPropertiesView}"/>
+
+            <Grid Grid.Row="1" Margin="5 15 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Command="{Binding OkCommand}"
+                        Padding="5" Margin="10" Content="OK"/>
+                <Button Grid.Column="1"
+                        Command="{Binding CancelCommand}"
+                        Padding="5" Margin="10" Content="Cancel"/>
+            </Grid>
+        </Grid>
     </DataTemplate>
 </ResourceDictionary>

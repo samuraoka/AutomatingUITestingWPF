@@ -8,8 +8,8 @@
                 <ResourceDictionary Source="Common/Common.xaml"/>
                 <ResourceDictionary Source="Departments/DepartmentListView.xaml"/>
                 <ResourceDictionary Source="Departments/DepartmentView.xaml"/>
-                <!--TODO-->
                 <ResourceDictionary Source="Employees/EmployeeListView.xaml"/>
+                <ResourceDictionary Source="Employees/EmployeeMainPropertiesView.xaml"/>
                 <!--TODO-->
                 <ResourceDictionary Source="Projects/ProjectListView.xaml"/>
                 <ResourceDictionary Source="Projects/ProjectMainPropertiesView.xaml"/>
