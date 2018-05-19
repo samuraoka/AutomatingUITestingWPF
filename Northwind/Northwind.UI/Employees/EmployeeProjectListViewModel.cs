@@ -7,7 +7,7 @@ namespace Northwind.UI.Employees
 {
     public class EmployeeProjectListViewModel : ViewModel
     {
-        //TODO
+        private EmployeeRepository _repository;
         private readonly Employee _employee;
 
         public Command AddProjectCommand { get; private set; }
@@ -25,7 +25,7 @@ namespace Northwind.UI.Employees
 
         public EmployeeProjectListViewModel(Employee employee)
         {
-            //TODO
+            _repository = new EmployeeRepository();
             _employee = employee;
 
             AddProjectCommand = new Command(AddProject);
@@ -35,8 +35,19 @@ namespace Northwind.UI.Employees
 
         private void AddProject()
         {
-            //TODO next
-            throw new NotImplementedException();
+            if (_repository.IsEmployeeHeadOfDepartment(_employee))
+            {
+                CustomMessageBox.ShowError("The employee is a Head of Department. A Head of Department can't have projects assigned.");
+                return;
+            }
+
+            var viewModel = new NewEmployeeProjectViewModel(_employee);
+
+            if (_dialogService.ShowDialog(viewModel) == true)
+            {
+                //TODO next
+                throw new NotImplementedException();
+            }
         }
 
         private void DeleteProject(ProjectInvolvement obj)

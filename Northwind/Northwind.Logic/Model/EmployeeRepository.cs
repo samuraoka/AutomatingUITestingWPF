@@ -34,5 +34,14 @@ namespace Northwind.Logic.Model
         }
 
         //TODO
+
+        public bool IsEmployeeHeadOfDepartment(Employee employee)
+        {
+            using (var unitOfWork = new UnitOfWork())
+            {
+                return unitOfWork.Query<Department>()
+                    .Any(x => x.Head != null && x.Head == employee);
+            }
+        }
     }
 }
