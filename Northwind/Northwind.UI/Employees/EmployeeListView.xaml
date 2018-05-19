@@ -5,19 +5,28 @@
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left"
                     Orientation="Horizontal">
-                <Button Padding="3" Content="Add"/>
-                <Button Padding="3" Content="Edit"/>
-                <Button Padding="3" Content="Delete"/>
+                <Button Command="{Binding AddEmployeeCommand}"
+                        Padding="3" Content="Add"/>
+                <Button Command="{Binding EditEmployeeCommand}"
+                        CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"
+                        Padding="3" Content="Edit"/>
+                <Button Command="{Binding DeleteEmployeeCommand}"
+                        CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"
+                        Padding="3" Content="Delete"/>
             </StackPanel>
 
-            <DataGrid IsReadOnly="True" AutoGenerateColumns="False"
-                  HorizontalGridLinesBrush="DarkGray"
-                  VerticalGridLinesBrush="DarkGray" x:Name="grid"
-                  SelectionMode="Single">
+            <DataGrid ItemsSource="{Binding Path=Employees}" IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="DarkGray"
+                      VerticalGridLinesBrush="DarkGray" x:Name="grid"
+                      SelectionMode="Single">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="First Name"/>
-                    <DataGridTextColumn Header="Last Name"/>
-                    <DataGridTextColumn Header="Department"/>
+                    <DataGridTextColumn
+                        Header="First Name" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn
+                        Header="Last Name" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn
+                        Header="Department" Binding="{Binding DepartmentName}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
