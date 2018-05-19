@@ -1,5 +1,4 @@
-﻿using System;
-using Northwind.Logic.Model;
+﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
 
 namespace Northwind.UI.Employees
@@ -7,7 +6,7 @@ namespace Northwind.UI.Employees
     public class EmployeeMainPropertiesViewModel : ViewModel
     {
         private readonly Employee _employee;
-        //TODO
+        private readonly DepartmentRepository _departmentRepository;
 
         public Command ChangeDepartmentCommand { get; private set; }
 
@@ -51,7 +50,7 @@ namespace Northwind.UI.Employees
 
         public EmployeeMainPropertiesViewModel(Employee employee)
         {
-            //TODO
+            _departmentRepository = new DepartmentRepository();
             _employee = employee;
 
             ChangeDepartmentCommand = new Command(ChangeDepartment);
@@ -70,8 +69,9 @@ namespace Northwind.UI.Employees
 
             if (_dialogService.ShowDialog(viewModel) == true)
             {
-                //TODO next
-                throw new NotImplementedException();
+                _employee.Department = _departmentRepository.GetById(
+                    viewModel.SelectedDepartment.Id);
+                Notify(() => DepartmentName);
             }
         }
     }
