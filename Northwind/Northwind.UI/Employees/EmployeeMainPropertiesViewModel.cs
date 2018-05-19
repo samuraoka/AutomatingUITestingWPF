@@ -70,7 +70,7 @@ namespace Northwind.UI.Employees
 
             if (_dialogService.ShowDialog(viewModel) == true)
             {
-                //TODO
+                //TODO next
                 throw new NotImplementedException();
             }
         }

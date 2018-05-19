@@ -4,8 +4,33 @@
     <DataTemplate x:Key="ChangeDepartmentView"
                   DataType="employees:ChangeDepartmentViewModel">
         <Grid>
-            <!--TODO-->
-            <TextBlock>ChangeDepartmentView</TextBlock>
-        </Grid>        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <ListBox SelectedItem="{Binding SelectedDepartment}"
+                     ItemsSource="{Binding Departments}"
+                     DisplayMemberPath="Name" x:Name="list">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="5"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="OK"
+                        CommandParameter="{Binding ElementName=list, Path=SelectedItem}"
+                        Command="{Binding OkCommand}" Padding="5" Margin="10"/>
+                <Button Grid.Column="1" Command="{Binding CancelCommand}"
+                        Padding="5" Margin="10" Content="Cancel"/>
+            </Grid>
+        </Grid>
     </DataTemplate>
 </ResourceDictionary>
