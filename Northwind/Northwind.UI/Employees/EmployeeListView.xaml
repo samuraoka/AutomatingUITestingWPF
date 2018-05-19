@@ -3,8 +3,24 @@
                     xmlns:employees="clr-namespace:Northwind.UI.Employees">
     <DataTemplate x:Key="EmployeeListView" DataType="employees:EmployeeListViewModel">
         <DockPanel>
-            <TextBlock Text="EmployeeListView"/>
-            <!--TODO-->
+            <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                <Button Padding="3" Content="Add"/>
+                <Button Padding="3" Content="Edit"/>
+                <Button Padding="3" Content="Delete"/>
+            </StackPanel>
+
+            <DataGrid IsReadOnly="True" AutoGenerateColumns="False"
+                  HorizontalGridLinesBrush="DarkGray"
+                  VerticalGridLinesBrush="DarkGray" x:Name="grid"
+                  SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First Name"/>
+                    <DataGridTextColumn Header="Last Name"/>
+                    <DataGridTextColumn Header="Department"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
         </DockPanel>
     </DataTemplate>
 </ResourceDictionary>
