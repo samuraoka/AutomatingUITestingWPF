@@ -1,9 +1,54 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:Northwind.UI.Common"
                     xmlns:employees="clr-namespace:Northwind.UI.Employees">
     <DataTemplate x:Key="ExistingEmployeeView"
                   DataType="employees:ExistingEmployeeViewModel">
-        <!--TODO-->
-        <TextBlock>ExistingEmployeeView</TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <common:MainDataTemplateSelector x:Key="selector"/>
+            </Grid.Resources>
+
+            <ListBox x:Name="leftPane" ItemsSource="{Binding Path=Tabs}"
+                     SelectedIndex="0" DisplayMemberPath="Caption"
+                     BorderThickness="0">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="25"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+
+            <GridSplitter Width="5"/>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <ContentPresenter
+                    Content="{Binding ElementName=leftPane, Path=SelectedItem}"
+                    ContentTemplateSelector="{StaticResource selector}"/>
+
+                <Grid Grid.Row="1" Margin="5 15 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Command="{Binding OkCommand}"
+                            Padding="5" Margin="10" Content="Ok"/>
+                    <Button Grid.Column="1"
+                            Command="{Binding CancelCommand}"
+                            Padding="5" Margin="10" Content="Cancel"/>
+                </Grid>
+            </Grid>
+        </Grid>
     </DataTemplate>
 </ResourceDictionary>

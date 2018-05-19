@@ -11,5 +11,12 @@ namespace Northwind.Logic.Model
         public virtual bool IsFullTimer { get; set; }
 
         //TODO
+
+        public virtual string Name
+        {
+            get { return $"{FirstName} {LastName}"; }
+        }
+
+        //TODO
     }
 }

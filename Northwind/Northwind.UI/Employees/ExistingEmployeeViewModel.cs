@@ -1,5 +1,7 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
+using System;
+using System.Collections.Generic;
 
 namespace Northwind.UI.Employees
 {
@@ -7,7 +9,14 @@ namespace Northwind.UI.Employees
     {
         //TODO
         public Employee Employee { get; private set; }
-        //TODO
+        public Command OkCommand { get; private set; }
+        public Command CancelCommand { get; private set; }
+        public List<ViewModel> Tabs { get; private set; }
+
+        public override string Caption
+        {
+            get { return $"Employee: {Employee.Name}"; }
+        }
 
         public override double Width
         {
@@ -23,9 +32,24 @@ namespace Northwind.UI.Employees
         {
             //TODO
             Employee = employee;
+
             //TODO
+            var mainProperties = new EmployeeMainPropertiesViewModel(employee);
+            var projects = new EmployeeProjectListViewModel(employee);
+            Tabs = new List<ViewModel>
+            {
+                mainProperties,
+                projects,
+            };
+
+            OkCommand = new Command(() => mainProperties.IsValid(), Save);
+            CancelCommand = new Command(() => DialogResult = false);
         }
 
-        //TODO
+        private void Save()
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
     }
 }
