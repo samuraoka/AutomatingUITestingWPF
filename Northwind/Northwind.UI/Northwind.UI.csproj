@@ -91,6 +91,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Common\BooleanToYesConverter.cs" />
     <Compile Include="Common\Command.cs" />
     <Compile Include="Common\CustomWindow.xaml.cs">
       <DependentUpon>CustomWindow.xaml</DependentUpon>

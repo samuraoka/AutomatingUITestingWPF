@@ -1,4 +1,6 @@
 ﻿using Northwind.Logic.Common;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Northwind.Logic.Model
 {
@@ -9,6 +11,12 @@ namespace Northwind.Logic.Model
         public virtual string About { get; set; }
         public virtual Department Department { get; set; }
         public virtual bool IsFullTimer { get; set; }
+
+        protected virtual IList<ProjectInvolvement> InvolvementsInternal { get; set; }
+        public virtual IReadOnlyList<ProjectInvolvement> Involvements
+        {
+            get { return InvolvementsInternal.ToList(); }
+        }
 
         //TODO
 

@@ -1,4 +1,5 @@
-﻿using Northwind.Logic.Common;
+﻿using FluentNHibernate;
+using Northwind.Logic.Common;
 
 namespace Northwind.Logic.Model
 {
@@ -13,7 +14,11 @@ namespace Northwind.Logic.Model
 
             References(x => x.Department).Not.LazyLoad();
 
-            //TODO
+            HasMany<ProjectInvolvement>(
+                Reveal.Member<Employee>("InvolvementsInternal"))
+                .Not.LazyLoad()
+                .Inverse()
+                .Cascade.AllDeleteOrphan();
         }
     }
 }

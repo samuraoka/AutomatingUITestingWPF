@@ -1,5 +1,7 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
+using System;
+using System.Collections.Generic;
 
 namespace Northwind.UI.Employees
 {
@@ -7,7 +9,14 @@ namespace Northwind.UI.Employees
     {
         //TODO
         private readonly Employee _employee;
-        //TODO
+
+        public Command AddProjectCommand { get; private set; }
+        public Command<ProjectInvolvement> DeleteProjectCommand { get; private set; }
+
+        public IReadOnlyList<ProjectInvolvement> Projects
+        {
+            get { return _employee.Involvements; }
+        }
 
         public override string Caption
         {
@@ -18,9 +27,22 @@ namespace Northwind.UI.Employees
         {
             //TODO
             _employee = employee;
-            //TODO
+
+            AddProjectCommand = new Command(AddProject);
+            DeleteProjectCommand =
+                new Command<ProjectInvolvement>(x => x != null, DeleteProject);
         }
 
-        //TODO
+        private void AddProject()
+        {
+            //TODO next
+            throw new NotImplementedException();
+        }
+
+        private void DeleteProject(ProjectInvolvement obj)
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
     }
 }

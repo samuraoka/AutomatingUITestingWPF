@@ -4,5 +4,6 @@
 
     <ImageSource x:Key="imgApplicationIcon">../Images/Icon.png</ImageSource>
     <common:InvertedBooleanConverter x:Key="invertedBooleanConverter"/>
+    <common:BooleanToYesConverter x:Key="booleanToYesConverter"/>
     <!--TODO-->
 </ResourceDictionary>

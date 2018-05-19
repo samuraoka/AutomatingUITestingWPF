@@ -4,8 +4,29 @@
     <DataTemplate x:Key="EmployeeProjectListView"
                   DataType="employees:EmployeeProjectListViewModel">
         <DockPanel>
-            <!--TODO-->
-            <TextBlock>EmployeeProjectListView</TextBlock>
+            <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                <Button Command="{Binding AddProjectCommand}"
+                        Padding="3" Content="Add"/>
+                <Button Command="{Binding DeleteProjectCommand}"
+                        CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"
+                        Padding="3" Content="Delete"/>
+            </StackPanel>
+
+            <DataGrid ItemsSource="{Binding Path=Projects}" IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="DarkGray"
+                      VerticalGridLinesBrush="DarkGray" x:Name="grid"
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name"
+                                        Binding="{Binding Path=Project.Name}"/>
+                    <DataGridTextColumn Header="Role"
+                                        Binding="{Binding Path=Role}"/>
+                    <DataGridTextColumn Header="Main for Employee"
+                                        Binding="{Binding Path=IsMainForEmployee, Converter={StaticResource booleanToYesConverter}}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </DockPanel>
     </DataTemplate>
 </ResourceDictionary>
