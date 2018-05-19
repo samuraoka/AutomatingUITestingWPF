@@ -10,7 +10,7 @@
             </Grid.RowDefinitions>
 
             <ContentPresenter
-                Content="{Binding EmployeeMainPropertiesViewModel}"
+                Content="{Binding Path=MainProperties}"
                 ContentTemplate="{StaticResource EmployeeMainPropertiesView}"/>
 
             <Grid Grid.Row="1" Margin="5 15 0 0">
