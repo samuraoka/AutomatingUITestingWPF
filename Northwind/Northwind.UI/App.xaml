@@ -10,10 +10,9 @@
                 <ResourceDictionary Source="Departments/DepartmentView.xaml"/>
                 <ResourceDictionary Source="Employees/EmployeeListView.xaml"/>
                 <ResourceDictionary Source="Employees/EmployeeMainPropertiesView.xaml"/>
-                <!--TODO-->
+                <ResourceDictionary Source="Employees/ChangeDepartmentView.xaml"/>
                 <ResourceDictionary Source="Projects/ProjectListView.xaml"/>
                 <ResourceDictionary Source="Projects/ProjectMainPropertiesView.xaml"/>
-                <!--TODO-->
                 <ResourceDictionary Source="Employees/NewEmployeeView.xaml"/>
                 <!--TODO-->
                 <ResourceDictionary Source="Projects/NewProjectView.xaml"/>

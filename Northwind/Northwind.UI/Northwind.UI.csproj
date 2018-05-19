@@ -99,6 +99,7 @@
     <Compile Include="Common\DialogService.cs" />
     <Compile Include="Common\InvertedBooleanConverter.cs" />
     <Compile Include="Departments\DepartmentViewModel.cs" />
+    <Compile Include="Employees\ChangeDepartmentViewModel.cs" />
     <Compile Include="Employees\EmployeeMainPropertiesViewModel.cs" />
     <Compile Include="Employees\NewEmployeeViewModel.cs" />
     <Compile Include="Projects\ExistingProjectViewModel.cs" />
@@ -123,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Departments\DepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Employees\ChangeDepartmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

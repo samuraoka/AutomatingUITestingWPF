@@ -66,8 +66,13 @@ namespace Northwind.UI.Employees
 
         private void ChangeDepartment()
         {
-            //TODO
-            throw new NotImplementedException();
+            var viewModel = new ChangeDepartmentViewModel();
+
+            if (_dialogService.ShowDialog(viewModel) == true)
+            {
+                //TODO
+                throw new NotImplementedException();
+            }
         }
     }
 }
