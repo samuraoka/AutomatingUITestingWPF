@@ -1,5 +1,6 @@
 ﻿using Northwind.Logic.Common;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Northwind.Logic.Model
 {
@@ -11,7 +12,10 @@ namespace Northwind.Logic.Model
 
         protected virtual IList<ProjectInvolvement> InvolvementsInternal
         { get; set; }
-        //TODO
+        public virtual IReadOnlyList<ProjectInvolvement> Involvements
+        {
+            get { return InvolvementsInternal.ToList(); }
+        }
 
         public Project()
         {

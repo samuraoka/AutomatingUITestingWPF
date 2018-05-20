@@ -51,10 +51,11 @@ namespace Northwind.UI.Employees
             }
         }
 
-        private void DeleteProject(ProjectInvolvement obj)
+        private void DeleteProject(ProjectInvolvement project)
         {
-            //TODO
-            throw new NotImplementedException();
+            _employee.DeleteProject(project);
+
+            Notify(() => Projects);
         }
     }
 }

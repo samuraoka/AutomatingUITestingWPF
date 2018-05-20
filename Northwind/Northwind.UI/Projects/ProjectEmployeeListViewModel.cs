@@ -1,5 +1,6 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
+using System.Collections.Generic;
 
 namespace Northwind.UI.Projects
 {
@@ -7,7 +8,10 @@ namespace Northwind.UI.Projects
     {
         private readonly Project _project;
 
-        //TODO
+        public IReadOnlyList<ProjectInvolvement> Employees
+        {
+            get { return _project.Involvements; }
+        }
 
         public override string Caption
         {

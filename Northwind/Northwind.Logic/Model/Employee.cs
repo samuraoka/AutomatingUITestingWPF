@@ -37,7 +37,20 @@ namespace Northwind.Logic.Model
             }
         }
 
-        //TODO
+        public Employee()
+        {
+            IsFullTimer = true;
+        }
+
+        public virtual void DeleteProject(ProjectInvolvement project)
+        {
+            if (Involvements.Contains(project) == false)
+            {
+                return;
+            }
+
+            InvolvementsInternal.Remove(project);
+        }
 
         public virtual void AddProject(ProjectInvolvement project)
         {

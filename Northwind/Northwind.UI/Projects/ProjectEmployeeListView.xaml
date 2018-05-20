@@ -4,8 +4,23 @@
     <DataTemplate x:Key="ProjectEmployeeListView"
                   DataType="projects:ProjectEmployeeListViewModel">
         <DockPanel>
-            <!--TODO next-->
-            <TextBlock Text="ProjectEmployeeListView"/>
+            <DataGrid ItemsSource="{Binding Path=Employees}" IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="DarkGray"
+                      VerticalGridLinesBrush="DarkGray" x:Name="grid"
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Header="Name"
+                        Binding="{Binding Path=Employee.Name}"/>
+                    <DataGridTextColumn
+                        Header="Role"
+                        Binding="{Binding Path=Role}"/>
+                    <DataGridTextColumn
+                        Header="Full-Timer"
+                        Binding="{Binding Path=Employee.IsFullTimer, Converter={StaticResource booleanToYesConverter}}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </DockPanel>
     </DataTemplate>
 </ResourceDictionary>
