@@ -61,10 +61,9 @@ namespace Northwind.UI.Employees
         {
             if (IsMain && _employee.HasMainProject())
             {
-                //TODO next
-                throw new NotImplementedException();
-                //CustomMessageBox.ShowError(
-                //    $"The employee already has a main project ({_employee.MainProject.Name}).");
+                CustomMessageBox.ShowError(
+                    $"The employee already has a main project ({_employee.MainProject.Name}).");
+                return;
             }
 
             var project = _repository.GetById(SelectedProject.Id);
