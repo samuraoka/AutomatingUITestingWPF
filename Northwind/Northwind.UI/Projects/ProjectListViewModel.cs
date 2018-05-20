@@ -62,7 +62,7 @@ namespace Northwind.UI.Projects
 
         private void DeleteProject(ProjectDto obj)
         {
-            //TODO
+            //TODO next
             throw new NotImplementedException();
         }
     }

@@ -1,6 +1,5 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
-using System;
 using System.Collections.ObjectModel;
 
 namespace Northwind.UI.Employees
@@ -62,10 +61,10 @@ namespace Northwind.UI.Employees
             }
         }
 
-        private void DeleteEmployee(EmployeeDto obj)
+        private void DeleteEmployee(EmployeeDto employeeDto)
         {
-            //TODO next
-            throw new NotImplementedException();
+            _repository.Delete(employeeDto.Id);
+            Employees.Remove(employeeDto);
         }
     }
 }
