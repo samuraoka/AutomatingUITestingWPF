@@ -64,7 +64,7 @@ namespace Northwind.UI.Employees
 
         private void DeleteEmployee(EmployeeDto obj)
         {
-            //TODO
+            //TODO next
             throw new NotImplementedException();
         }
     }

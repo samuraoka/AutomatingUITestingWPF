@@ -61,7 +61,10 @@ namespace Northwind.Logic.Utils
             _session.SaveOrUpdate(entity);
         }
 
-        //TODO
+        internal void Delete<T>(T entity)
+        {
+            _session.Delete(entity);
+        }
 
         internal IQueryable<T> Query<T>()
         {

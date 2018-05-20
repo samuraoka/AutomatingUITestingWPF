@@ -22,6 +22,14 @@ namespace Northwind.Logic.Common
             }
         }
 
-        //TODO
+        public void Delete(long id)
+        {
+            using (var unitOfWork = new UnitOfWork())
+            {
+                var entity = unitOfWork.Get<T>(id);
+                unitOfWork.Delete(entity);
+                unitOfWork.Commit();
+            }
+        }
     }
 }

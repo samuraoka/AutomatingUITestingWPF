@@ -1,6 +1,5 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
-using System;
 using System.Collections.ObjectModel;
 
 namespace Northwind.UI.Departments
@@ -61,10 +60,10 @@ namespace Northwind.UI.Departments
             }
         }
 
-        private void DeleteDepartment(DepartmentDto obj)
+        private void DeleteDepartment(DepartmentDto departmentDto)
         {
-            //TODO next
-            throw new NotImplementedException();
+            _repository.Delete(departmentDto.Id);
+            Departments.Remove(departmentDto);
         }
     }
 }
