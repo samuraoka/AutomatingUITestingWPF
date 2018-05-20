@@ -18,7 +18,10 @@ namespace Northwind.Logic.Model
             get { return InvolvementsInternal.ToList(); }
         }
 
-        //TODO
+        public virtual IReadOnlyList<Project> Projects
+        {
+            get { return InvolvementsInternal.Select(x => x.Project).ToList(); }
+        }
 
         public virtual string Name
         {

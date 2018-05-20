@@ -1,12 +1,28 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Northwind.UI.Employees
 {
     public class NewEmployeeProjectViewModel : ViewModel
     {
         private readonly Employee _employee;
+        private readonly ProjectRepository _repository;
         //TODO
+        public ProjectDto SelectedProject { get; set; }
+        public IReadOnlyList<ProjectDto> Projects { get; private set; }
+        public Role SelectedRole { get; set; }
+
+        public IReadOnlyList<Role> Roles
+        {
+            get { return Enum.GetValues(typeof(Role)).Cast<Role>().ToList(); }
+        }
+
+        public bool IsMain { get; set; }
+        public Command OkCommand { get; private set; }
+        public Command CancelCommand { get; private set; }
 
         public override string Caption
         {
@@ -25,12 +41,26 @@ namespace Northwind.UI.Employees
 
         public NewEmployeeProjectViewModel(Employee employee)
         {
-            //TODO
+            _repository = new ProjectRepository();
             _employee = employee;
 
-            //TODO
+            Projects = _repository.GetProjectDtoList()
+                .Where(x => employee.Projects.Any(y => y.Id == x.Id) == false)
+                .ToList();
+
+            OkCommand = new Command(IsValid, Save);
+            CancelCommand = new Command(() => DialogResult = false);
         }
 
-        //TODO
+        private bool IsValid()
+        {
+            return SelectedRole != 0 && SelectedProject != null;
+        }
+
+        private void Save()
+        {
+            //TODO next
+            throw new NotImplementedException();
+        }
     }
 }
