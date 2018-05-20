@@ -8,7 +8,7 @@ namespace Northwind.UI.Departments
     {
         private readonly DepartmentRepository _repository;
 
-        //TODO
+        //TODO relevant to a head of department
         public Department Department { get; private set; }
         public Command OkCommand { get; private set; }
         public Command CancelCommand { get; private set; }
@@ -19,7 +19,7 @@ namespace Northwind.UI.Departments
             set { Department.Name = value; }
         }
 
-        //TODO
+        //TODO relevant to a head of department
 
         public override string Caption
         {
@@ -38,7 +38,7 @@ namespace Northwind.UI.Departments
         public DepartmentViewModel(Department department)
         {
             _repository = new DepartmentRepository();
-            //TODO
+            //TODO relevant to a head of department
             Department = department;
 
             OkCommand = new Command(() => !string.IsNullOrWhiteSpace(Name), Save);

@@ -33,7 +33,7 @@ namespace Northwind.Logic.Model
             }
         }
 
-        //TODO
+        //TODO relevant to a head of department
 
         public bool IsEmployeeHeadOfDepartment(Employee employee)
         {
