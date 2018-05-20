@@ -1,6 +1,5 @@
 ﻿using Northwind.Logic.Model;
 using Northwind.UI.Common;
-using System;
 using System.Collections.ObjectModel;
 
 namespace Northwind.UI.Projects
@@ -60,10 +59,10 @@ namespace Northwind.UI.Projects
             }
         }
 
-        private void DeleteProject(ProjectDto obj)
+        private void DeleteProject(ProjectDto projectDto)
         {
-            //TODO next
-            throw new NotImplementedException();
+            _repository.Delete(projectDto.Id);
+            Projects.Remove(projectDto);
         }
     }
 }
