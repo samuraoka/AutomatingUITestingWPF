@@ -56,8 +56,9 @@ namespace Northwind.UI.Employees
 
             if (_dialogService.ShowDialog(viewModel) == true)
             {
-                //TODO next
-                throw new NotImplementedException();
+                int index = Employees.IndexOf(employeeDto);
+                Employees[index] =
+                    _repository.GetEmployeeDto(viewModel.Employee.Id);
             }
         }
 
