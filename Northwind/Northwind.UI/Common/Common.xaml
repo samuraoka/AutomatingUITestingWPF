@@ -5,5 +5,22 @@
     <ImageSource x:Key="imgApplicationIcon">../Images/Icon.png</ImageSource>
     <common:InvertedBooleanConverter x:Key="invertedBooleanConverter"/>
     <common:BooleanToYesConverter x:Key="booleanToYesConverter"/>
-    <!--TODO-->
+
+    <Style TargetType="DataGridCell">
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Border Padding="{TemplateBinding Padding}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>
