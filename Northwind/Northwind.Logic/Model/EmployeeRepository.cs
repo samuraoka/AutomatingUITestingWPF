@@ -25,7 +25,7 @@ namespace Northwind.Logic.Model
                 .ToList();
         }
 
-        private IReadOnlyList<Employee> GetEmployeeList()
+        public IReadOnlyList<Employee> GetEmployeeList()
         {
             using (var unitOfWork = new UnitOfWork())
             {

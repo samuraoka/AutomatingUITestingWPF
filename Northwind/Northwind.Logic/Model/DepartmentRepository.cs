@@ -38,6 +38,12 @@ namespace Northwind.Logic.Model
             }
         }
 
-        //TODO
+        public IReadOnlyList<Department> GetDepartmentList()
+        {
+            using (var unitOfWork = new UnitOfWork())
+            {
+                return unitOfWork.Query<Department>().ToList();
+            }
+        }
     }
 }

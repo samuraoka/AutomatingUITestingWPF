@@ -26,7 +26,7 @@ namespace Northwind.Logic.Model
                 .ToList();
         }
 
-        private IReadOnlyList<Project> GetProjectList()
+        public IReadOnlyList<Project> GetProjectList()
         {
             using (var unitOfWork = new UnitOfWork())
             {
