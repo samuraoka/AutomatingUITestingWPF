@@ -28,6 +28,30 @@ namespace Northwind.Logic.Model
             get { return $"{FirstName} {LastName}"; }
         }
 
+        public virtual Project MainProject
+        {
+            get
+            {
+                return InvolvementsInternal.SingleOrDefault(
+                    x => x.IsMainForEmployee)?.Project;
+            }
+        }
+
         //TODO
+
+        public virtual void AddProject(ProjectInvolvement project)
+        {
+            if (Involvements.Contains(project))
+            {
+                return;
+            }
+
+            InvolvementsInternal.Add(project);
+        }
+
+        public virtual bool HasMainProject()
+        {
+            return MainProject != null;
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Northwind.UI.Employees
     {
         private readonly Employee _employee;
         private readonly ProjectRepository _repository;
-        //TODO
+        public ProjectInvolvement ProjectInvolvement { get; private set; }
         public ProjectDto SelectedProject { get; set; }
         public IReadOnlyList<ProjectDto> Projects { get; private set; }
         public Role SelectedRole { get; set; }
@@ -59,8 +59,19 @@ namespace Northwind.UI.Employees
 
         private void Save()
         {
-            //TODO next
-            throw new NotImplementedException();
+            if (IsMain && _employee.HasMainProject())
+            {
+                //TODO next
+                throw new NotImplementedException();
+                //CustomMessageBox.ShowError(
+                //    $"The employee already has a main project ({_employee.MainProject.Name}).");
+            }
+
+            var project = _repository.GetById(SelectedProject.Id);
+            ProjectInvolvement = new ProjectInvolvement(
+                project, _employee, SelectedRole, IsMain);
+
+            DialogResult = true;
         }
     }
 }

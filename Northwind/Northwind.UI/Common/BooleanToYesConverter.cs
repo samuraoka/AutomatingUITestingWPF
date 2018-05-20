@@ -10,15 +10,14 @@ namespace Northwind.UI.Common
         public object Convert(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            //TODO
-            throw new NotImplementedException();
+            bool booleanValue = (bool)value;
+            return booleanValue ? "Yes" : string.Empty;
         }
 
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
-            //TODO
-            throw new NotImplementedException();
+            throw new InvalidOperationException();
         }
     }
 }

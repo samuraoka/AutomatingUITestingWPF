@@ -45,8 +45,9 @@ namespace Northwind.UI.Employees
 
             if (_dialogService.ShowDialog(viewModel) == true)
             {
-                //TODO next
-                throw new NotImplementedException();
+                _employee.AddProject(viewModel.ProjectInvolvement);
+
+                Notify(() => Projects);
             }
         }
 
