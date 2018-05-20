@@ -48,15 +48,22 @@ namespace Northwind.UI.Departments
             }
         }
 
-        private void EditDepartment(DepartmentDto obj)
+        private void EditDepartment(DepartmentDto departmentDto)
         {
-            //TODO
-            throw new NotImplementedException();
+            var department = _repository.GetById(departmentDto.Id);
+            var viewModel = new DepartmentViewModel(department);
+
+            if (_dialogService.ShowDialog(viewModel) == true)
+            {
+                int index = Departments.IndexOf(departmentDto);
+                Departments[index] =
+                    _repository.GetDepartmentDto(viewModel.Department.Id);
+            }
         }
 
         private void DeleteDepartment(DepartmentDto obj)
         {
-            //TODO
+            //TODO next
             throw new NotImplementedException();
         }
     }
