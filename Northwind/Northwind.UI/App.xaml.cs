@@ -1,4 +1,6 @@
 ﻿using Northwind.Logic.Utils;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 
 namespace Northwind.UI
@@ -11,6 +13,22 @@ namespace Northwind.UI
         public App()
         {
             Initer.Init();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            SetCulture();
+
+            base.OnStartup(e);
+        }
+
+        private static void SetCulture()
+        {
+            var cul = new CultureInfo("en");
+            CultureInfo.DefaultThreadCurrentCulture = cul;
+            CultureInfo.DefaultThreadCurrentUICulture = cul;
+            Thread.CurrentThread.CurrentCulture = cul;
+            Thread.CurrentThread.CurrentUICulture = cul;
         }
     }
 }
