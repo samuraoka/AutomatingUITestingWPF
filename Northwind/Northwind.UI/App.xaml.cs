@@ -1,4 +1,5 @@
 ﻿using Northwind.Logic.Utils;
+using System;
 using System.Globalization;
 using System.Threading;
 using System.Windows;
@@ -12,7 +13,16 @@ namespace Northwind.UI
     {
         public App()
         {
-            Initer.Init();
+            try
+            {
+                Initer.Init();
+            }
+            catch (Exception)
+            {
+                // How do I exit a WPF application programmatically?
+                // https://stackoverflow.com/questions/2820357/how-do-i-exit-a-wpf-application-programmatically
+                Current.Shutdown(-200);
+            }
         }
 
         protected override void OnStartup(StartupEventArgs e)

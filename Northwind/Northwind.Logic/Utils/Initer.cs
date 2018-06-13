@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -40,15 +39,7 @@ namespace Northwind.Logic.Utils
                 // How can I deserialize JSON to a simple Dictionary<string,string> in ASP.NET?
                 // https://stackoverflow.com/questions/1207731/how-can-i-deserialize-json-to-a-simple-dictionarystring-string-in-asp-net
                 var dic = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-                try
-                {
-                    connectionString = dic["connectionString"];
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine(ex.StackTrace);
-                }
+                connectionString = dic["connectionString"];
             }
             return connectionString;
         }
