@@ -10,8 +10,9 @@ https://app.pluralsight.com/library/courses/wpf-applications-automating-ui-tests
 * [TestStack.White 0.13.3](https://www.nuget.org/packages/TestStack.White/)
 
 ## To run the project:
-1. Create a Northwind database using the SqlScript.sql
-2. Create a json file named "connectionString.json" at root of Northwind.UI. And set "Copy to Output Directory" property to "Copy if newer".
+1. Create a Northwind database using the SqlScript.sql in the solution root folder.
+2. Create a json file named "connectionString.json" at root of the Northwind.UI project.
+And set "Copy to Output Directory" property of the connectionsString.json file to "Copy if newer".
 3. Write a connection string to the connectionString.json file like below
 ```
 {
