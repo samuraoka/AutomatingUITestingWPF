@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using TestStack.White;
 using TestStack.White.UIItems;
@@ -57,6 +58,57 @@ namespace Northwind.White
             main.Close();
 
             Assert.AreEqual("Vladimir2", expected);
+        }
+
+        [TestMethod]
+        public void PerformanceTest()
+        {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            var application = Application.Launch(@"..\..\..\Northwind.UI\bin\Debug\Northwind.UI.exe");
+            var window = application.GetWindow("Northwind");
+            var listBox = window.Get<ListBox>();
+            listBox.Item("Departments").Select();
+            window.Get<Button>(SearchCriteria.ByText("Add")).Click();
+
+            var newDeptWin = Retry.For(() => application.GetWindows().First(w => w.Title.Contains("New department")), TimeSpan.FromSeconds(30));
+            newDeptWin.Get<TextBox>().Text = "Test Department";
+            newDeptWin.Get<Button>(SearchCriteria.ByText("OK")).Click();
+
+            listBox.Item("Projects").Select();
+            window.Get<Button>(SearchCriteria.ByText("Add")).Click();
+            var newProjWin = Retry.For(() => application.GetWindows().First(w => w.Title.Contains("New project")), TimeSpan.FromSeconds(30));
+            newProjWin.Get<TextBox>(SearchCriteria.Indexed(0)).Text = "Internal project";
+            newProjWin.Get<TextBox>(SearchCriteria.Indexed(1)).Text = "1000000";
+            newProjWin.Get<Button>(SearchCriteria.ByText("OK")).Click();
+
+            listBox.Item("Employees").Select();
+            window.Get<Button>(SearchCriteria.ByText("Add")).Click();
+            var newEmpWIn = Retry.For(() => application.GetWindows().First(w => w.Title.Contains("New employee")), TimeSpan.FromSeconds(30));
+            newEmpWIn.Get<TextBox>(SearchCriteria.Indexed(0)).Text = "Vladimir";
+            newEmpWIn.Get<TextBox>(SearchCriteria.Indexed(1)).Text = "Khorikov";
+            newEmpWIn.Get<TextBox>(SearchCriteria.Indexed(2)).Text = "I'm a software developer";
+            newEmpWIn.Get<Button>(SearchCriteria.ByText("Change")).Click();
+            var changeDeptWin = Retry.For(() => application.GetWindows().First(x => x.Title.Contains("Change department")), TimeSpan.FromSeconds(30));
+            changeDeptWin.Get<ListBox>().Item("Test Department").Select();
+            changeDeptWin.Get<Button>(SearchCriteria.ByText("OK")).Click();
+            newEmpWIn.Get<Button>(SearchCriteria.ByText("OK")).Click();
+
+            var empWin = Retry.For(() => application.GetWindows().First(x => x.Title.Contains("Employee:")), TimeSpan.FromSeconds(30));
+            empWin.Get<ListBox>().Select("Projects");
+            empWin.Get<Button>(SearchCriteria.ByText("Add")).Click();
+            var newProjForEmpWin = Retry.For(() => application.GetWindows().First(x => x.Title.Contains("New project for employee:")), TimeSpan.FromSeconds(30));
+            newProjForEmpWin.Get<ListBox>().Select("Internal project");
+            newProjForEmpWin.Get<ComboBox>().Select("Developer");
+            newProjForEmpWin.Get<CheckBox>().Checked = true;
+            newProjForEmpWin.Get<Button>(SearchCriteria.ByText("OK")).Click();
+            empWin.Get<Button>(SearchCriteria.ByText("OK")).Click();
+
+            window.Close();
+
+            stopwatch.Stop();
+            Console.WriteLine($"Time elapsed: {stopwatch.ElapsedMilliseconds} ms");
         }
     }
 }
