@@ -17,8 +17,10 @@ namespace Northwind.UI
             {
                 Initer.Init();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
                 // How do I exit a WPF application programmatically?
                 // https://stackoverflow.com/questions/2820357/how-do-i-exit-a-wpf-application-programmatically
                 Current.Shutdown(-200);

@@ -1,3 +1,3 @@
 ﻿{
-  "connectionString": "Server=(localdb)\\MSSQLLocalDB;Database=Northwind;Integrated Security=true;AttachDBFilename=E:\\sato\\MSSQLLocalDB\\AutomatingUITestingWPF\\Northwind\\Northwind.mdf"
+  "connectionString": "Server=(localdb)\\MSSQLLocalDB;Database=NorthwindTest;Integrated Security=true;AttachDBFilename=E:\\sato\\MSSQLLocalDB\\AutomatingUITestingWPF\\Northwind\\Test\\Northwind.mdf"
 }

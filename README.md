@@ -5,7 +5,6 @@ This is a demo application for [Automating UI Tests for WPF Applications](https:
 * [MS SQL Server LocalDB](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-2016-express-localdb?view=sql-server-2017)
 * [NHibernate 5.1.3](https://www.nuget.org/packages/NHibernate/)
 * [FluentNHibernate 2.1.2](https://www.nuget.org/packages/FluentNHibernate/)
-* [Xunit 2.3.1](https://www.nuget.org/packages/xunit/2.3.1)
 * [TestStack.White 0.13.3](https://www.nuget.org/packages/TestStack.White/)
 
 ## To run the project:
