@@ -46,14 +46,17 @@ namespace Northwind.White
             employee.Get<Button>(SearchCriteria.ByText("OK")).Click();
 
             var listView = main.Get<ListView>();
-            listView.Cell("First Name", 0).Click();
+            listView.Cell("First Name", listView.Rows.Count - 1).Click();
             main.Get<Button>(SearchCriteria.ByText("Edit")).Click();
 
             var editEmployee = Retry.For(
                 () => application.GetWindows().First(x => x.Title.Contains("Employee")),
                 TimeSpan.FromSeconds(5));
-            var textBox = editEmployee.Get<TextBox>(SearchCriteria.Indexed(0));
-            Assert.AreEqual("Vladimir2", textBox.Text);
+            var expected = editEmployee.Get<TextBox>(SearchCriteria.Indexed(0)).Text;
+            editEmployee.Close();
+            main.Close();
+
+            Assert.AreEqual("Vladimir2", expected);
         }
     }
 }
