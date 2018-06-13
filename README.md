@@ -1,6 +1,5 @@
 # Automating UI Tests for WPF Applications
-This is a demo application for the Automating UI Tests for WPF Applications by Vladimir Khorikov on Pluralsight.  
-https://app.pluralsight.com/library/courses/wpf-applications-automating-ui-tests/table-of-contents
+This is a demo application for [Automating UI Tests for WPF Applications](https://app.pluralsight.com/library/courses/wpf-applications-automating-ui-tests/table-of-contents) by [Vladimir Khorikov](https://app.pluralsight.com/profile/author/vladimir-khorikov) on Pluralsight.  
 
 * [WPF](https://docs.microsoft.com/en-us/dotnet/framework/wpf/)
 * [MS SQL Server LocalDB](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-2016-express-localdb?view=sql-server-2017)
