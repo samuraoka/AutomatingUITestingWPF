@@ -2,10 +2,12 @@
 This is a demo application for the Automating UI Tests for WPF Applications by Vladimir Khorikov on Pluralsight.  
 https://app.pluralsight.com/library/courses/wpf-applications-automating-ui-tests/table-of-contents
 
-* WPF
-* MS SQL LocalDB
-* NHibernate
-* FluentNHibernate
+* [WPF](https://docs.microsoft.com/en-us/dotnet/framework/wpf/)
+* [MS SQL Server LocalDB](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-2016-express-localdb?view=sql-server-2017)
+* [NHibernate 5.1.3](https://www.nuget.org/packages/NHibernate/)
+* [FluentNHibernate 2.1.2](https://www.nuget.org/packages/FluentNHibernate/)
+* [Xunit 2.3.1](https://www.nuget.org/packages/xunit/2.3.1)
+* [TestStack.White 0.13.3](https://www.nuget.org/packages/TestStack.White/)
 
 ## To run the project:
 1. Create a Northwind database using the SqlScript.sql
